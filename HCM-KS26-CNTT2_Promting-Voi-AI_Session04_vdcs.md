@@ -63,7 +63,7 @@ Bước 1: Kiểm tra dữ liệu & Xử lý đứt gãy (Data Validation)
 - Kiểm tra xem `ORDER_ID` hoặc `COMPLAINT_TEXT` có bị trống không,nếu có thêm null vào các ô trống.
 - Nếu `ORDER_ID` trống hoặc không hợp lệ: Đặt trạng thái `status` là "MISSING_DATA", `incident_level` là "Cần xác minh", đồng thời tạo cảnh báo trong `error_log` yêu cầu nhân viên CSKH liên hệ thủ công xin mã đơn.
 - Phân loại mức độ sự cố (`incident_level`):
-  - Cao/Nghiêm trọng: Hàng kém chất lượng,bị hư do vận chuyển
+  - Cao/Nghiêm trọng: Hàng kém chất lượng,bị hư do vận chuyển,thái độ shipper không tốt, nhân viên hỗ trợ không nhiệt tình
   - Trung bình: Giao sai sản phẩm, giao chậm quá 2 ngày
   - Thấp: Lỗi nhỏ về bao bì, khiếu nại chính sách chung.
 
@@ -107,7 +107,7 @@ JSON
     "issue_category": "Giao hàng sai là đôi giày bị sai màu, size, không đúng tên hãng khách yêu cầu"
   },
   "compensation_policy": "Chưa áp dụng do thiếu Mã đơn hàng để xác minh hệ thống.",
-  "draft_response": "Chào Khách hàng, cửa hàng chúng tôi rất tiếc vì trải nghiệm khách hàng chưa tốt. Để có thể kiểm tra kho và hỗ trợ đổi mới ngay lập tức cho khách hàng, khách hàng xin vui lòng cung cấp Mã đơn hàng (Order ID). Cửa hàng sẽ có chính sách giảm giá Voucher 10% cho đơn tiếp theo của khách hàng ",
+  "draft_response": "Dạ chào quý khách, cửa hàng chúng tôi rất tiếc vì trải nghiệm của khách hàng chưa tốt. Để có thể kiểm tra kho và hỗ trợ cho khách hàng, khách hàng xin vui lòng cung cấp Mã đơn hàng (Order ID). Cửa hàng sẽ có chính sách đền bù cho khách hàng,xin vui lòng cung cấp mã đơn hàng (Order ID) để có thể nhận mã giảm giá Voucher 10% cho đơn tiếp theo để khách hàng có thể nhận được quyền lợi đền bù và trải nghiệm tốt từ cửa hàng của chúng tôi",
   "error_log": "Trường [ORDER_ID] bị trống. Chuyển sang trạng thái sang MISSING_DATA và yêu cầu CSKH tương tác thủ công."
 }
 ```
